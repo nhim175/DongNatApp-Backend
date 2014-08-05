@@ -29,17 +29,29 @@ angular.module( 'ngBoilerplate.home', [
       "main": {
         controller: 'HomeCtrl',
         templateUrl: 'home/home.tpl.html'
+      },
+      "header": {
+        controller: 'HeaderCtrl',
+        templateUrl: 'header/header.tpl.html'
+      },
+      "left": {
+        controller: 'SidebarCtrl',
+        templateUrl: 'sidebar/sidebar.tpl.html'
       }
     },
-    data:{ pageTitle: 'Home' }
+    data:{ pageTitle: 'Dashboard', bodyClass: 'skin-blue' }
   });
 })
 
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'HomeCtrl', function HomeController( $scope ) {
-})
+.controller( 'HomeCtrl', ['$scope', '$state', 'UserService', function HomeCtrl( $scope, $state, UserService ) {
+  if (!UserService.isAuthenticated()) {
+    $state.go('login');
+    return;
+  }
+}])
 
 ;
 
