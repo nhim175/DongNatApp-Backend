@@ -9,6 +9,9 @@
     "angular-ui-router": "~0.2"
   },
   "dependencies": {
-    "moment": "~2.8.1"
+    "moment": "~2.8.1",
+    "bootstrap-hover-dropdown": "~2.0.11",
+    "jquery.iframe-transport": "~1.0.0",
+    "underscore": "~1.6.0"
   }
 }

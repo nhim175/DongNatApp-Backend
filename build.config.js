@@ -38,7 +38,8 @@ module.exports = {
    */
   test_files: {
     js: [
-      'vendor/angular-mocks/angular-mocks.js'
+      'vendor/angular-mocks/angular-mocks.js',
+      'vendor/jquery.iframe-transport/jquery.iframe-transport.js'
     ]
   },
 
@@ -63,12 +64,15 @@ module.exports = {
   vendor_files: {
     js: [
       'vendor/angular/angular.js',
+      'vendor/underscore/underscore.js',
       'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
       'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
       'vendor/angular-ui-router/release/angular-ui-router.js',
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/jquery/dist/jquery.min.js',
-      'vendor/moment/moment.js'
+      'vendor/moment/moment.js',
+      'vendor/AdminLTE/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js',
+      'vendor/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js'
     ],
     css: [
     ],
