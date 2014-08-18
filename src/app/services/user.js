@@ -57,6 +57,26 @@ angular.module( 'ngBoilerplate.UserService', ['ngBoilerplate.SettingsService'])
 		$.post(SettingsService.API_URL + '/user/update/' + user.id, user).done(successCallback).fail(errorCallback);
 	};
 
+	var create = function(user) {
+		var successCallback = function(data) {
+			$rootScope.$broadcast('user:createSuccess', data);
+		};
+		var errorCallback = function(error) {
+			$rootScope.$broadcast('user:createError', error);
+		};
+		$.post(SettingsService.API_URL + '/user/create', user).done(successCallback).fail(errorCallback);
+	};
+
+	var destroy = function(user_ids) {
+		var successCallback = function(data) {
+			$rootScope.$broadcast('user:destroySuccess', data);
+		};
+		var errorCallback = function(error) {
+			$rootScope.$broadcast('user:destroyError', error);
+		};
+		$.post(SettingsService.API_URL + '/user/delete', {ids: JSON.stringify(user_ids), token: get().token}).done(successCallback).fail(errorCallback);
+	};
+
 	return {
 		login: login,
 		logout: logout,
@@ -66,6 +86,8 @@ angular.module( 'ngBoilerplate.UserService', ['ngBoilerplate.SettingsService'])
 		fetch_all: fetch_all,
 		all: all,
 		find: find,
-		update: update
+		update: update,
+		create: create,
+		destroy: destroy
 	};
 }]);

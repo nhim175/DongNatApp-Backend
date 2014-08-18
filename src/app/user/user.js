@@ -100,26 +100,25 @@ angular.module( 'ngBoilerplate.user', [
   };
 }])
 
-.controller( 'NewUserCtrl', ['$scope', '$state', '$stateParams', 'UserService', 'CategoryService', 'SettingsService', function NewUserCtrl( $scope, $state, $stateParams, UserService, CategoryService, SettingsService ) {
+.controller( 'NewUserCtrl', ['$scope', '$state', '$stateParams', 'UserService', 'SettingsService', function NewUserCtrl( $scope, $state, $stateParams, UserService, SettingsService ) {
   if (!UserService.isAuthenticated()) {
     $state.go('login');
     return;
   }
 
-  $scope.categories = CategoryService.all();
   $scope.API_URL = SettingsService.API_URL;
 
-  $scope.$on('category:createSuccess', function(event, data) {
+  $scope.$on('user:createSuccess', function(event, data) {
     // TODO: use modal + i18n
-    $state.go('category');
+    $state.go('user');
   });
-  $scope.$on('category:createError', function(event, error) {
+  $scope.$on('user:createError', function(event, error) {
     // TODO: use modal + i18n
     alert('Create failed!');
   });
 
   $scope.submit = function() {
-    CategoryService.create($scope.category);
+    UserService.create($scope.user);
   };
 }])
 
