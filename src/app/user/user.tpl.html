@@ -1,0 +1,30 @@
+<div class="row margin-bottom-10">
+	<div class="col-md-12">
+		<a class="btn btn-success" href="#/user/new"><i class="fa fa-plus"></i> New</a>
+		<button class="btn btn-danger" ng-click="destroy()"><i class="fa fa-times"></i> Delete</button>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th style="width: 20px;"><input type="checkbox" ng-change="toggleSelect()" ng-model="selectToggle" /></th>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th style="width: 60px">#</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in users track by $index">
+					<td><input type="checkbox" ng-model="user.selected"/></td>
+					<td>{{user.id}}</td>
+					<td>{{user.name}}</td>
+					<td>{{user.email}}</td>
+					<td><a href="#/user/edit/{{user.id}}" class="btn btn-warning btn-sm">Edit</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
