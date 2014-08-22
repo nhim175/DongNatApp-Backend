@@ -1,0 +1,80 @@
+<div class="row margin-bottom-10">
+    <div class="col-md-12">
+        <a class="btn btn-success" ng-click="showUploadForm()"><i class="fa fa-plus"></i> Upload</a>
+    </div>
+</div>
+<div class="media row" id="media">
+	<div ng-repeat="file in files track by $index" class="col-md-2 col-sm-3 col-xs-4 thumb">
+		<a href="{{API_URL}}/media/{{file.id}}" title="{{file.filename}}" data-gallery>
+			<img class="img-thumbnail img-responsive" alt="{{file.filename}}" ng-src="{{API_URL}}/media/thumb/300x200/{{file.id}}" />
+		</a>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+        <ul id="pagination"class="pagination-sm"></ul>
+	</div>
+</div>
+
+<!-- Upload Modal -->
+<div class="modal fade" id="upload-form" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Upload files...</h4>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+            <label class="btn btn-success">
+                <i class="fa fa-plus"></i> Upload
+                <input type="file" id="files-input" style="display: none" multiple />
+            </label>            
+        </div>
+        <div class="row" id="uploaded-files">
+            <div class="col-md-2 col-sm-2 col-xs-3 thumb" ng-repeat="file in uploadedFiles track by $index">
+                <img class="img-thumbnail img-responsive" alt="{{file.filename}}" ng-src="{{API_URL}}/media/thumb/200x150/{{file.id}}" />
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

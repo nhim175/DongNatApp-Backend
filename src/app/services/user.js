@@ -54,7 +54,7 @@ angular.module( 'ngBoilerplate.UserService', ['ngBoilerplate.SettingsService'])
 		var errorCallback = function(error) {
 			$rootScope.$broadcast('user:saveError', error);
 		};
-		$.post(SettingsService.API_URL + '/user/update/' + user.id, user).done(successCallback).fail(errorCallback);
+		$.post(SettingsService.API_URL + '/user/update/' + user.id, {user: JSON.stringify(user), token: get().token}).done(successCallback).fail(errorCallback);
 	};
 
 	var create = function(user) {

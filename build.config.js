@@ -65,14 +65,18 @@ module.exports = {
     js: [
       'vendor/angular/angular.js',
       'vendor/underscore/underscore.js',
-      'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
+      'vendor/angular-bootstrap/ui-bootstrap-tpls.js',
       'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
       'vendor/angular-ui-router/release/angular-ui-router.js',
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/jquery/dist/jquery.min.js',
+      'vendor/bootstrap/dist/js/bootstrap.js',
       'vendor/moment/moment.js',
       'vendor/AdminLTE/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js',
-      'vendor/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js'
+      'vendor/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js',
+      'vendor/blueimp-gallery/js/blueimp-gallery.js',
+      'vendor/blueimp-bootstrap-image-gallery/js/bootstrap-image-gallery.js',
+      'vendor/twbs-pagination/jquery.twbsPagination.js'
     ],
     css: [
     ],

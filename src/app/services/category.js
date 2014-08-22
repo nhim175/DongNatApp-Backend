@@ -31,6 +31,7 @@ angular.module( 'ngBoilerplate.CategoryService', [
 		var errorCallback = function(error) {
 			$rootScope.$broadcast('category:saveError', error);
 		};
+		category.token = UserService.get().token;
 		$.post(SettingsService.API_URL + '/category/update/' + category.id, category).done(successCallback).fail(errorCallback);
 	};
 
